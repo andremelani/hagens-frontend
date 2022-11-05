@@ -1,0 +1,37 @@
+.container {
+    .title {
+        margin:20px;
+
+    }
+
+    .filterContainer {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px;
+
+        .filter {
+            margin: 20px;
+            @media(max-width: 468px) {
+                margin: 0px 20px;
+                display: flex;
+                flex-direction: column;
+              }
+            .filterText{
+                font-size: 20px;
+                font-weight: 600;
+                margin-right: 20px;
+                @media(max-width: 468px) {
+                    margin-right: 0px;
+                  }
+            }
+            select{
+                padding: 10px;
+                margin-right: 20px;
+                @media(max-width: 468px) {
+                    margin:10px 0px;
+                  }
+   
+            }
+        }
+    }
+}
