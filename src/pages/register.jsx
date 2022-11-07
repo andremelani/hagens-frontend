@@ -1,73 +1,94 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styles from "../styles/Register.module.scss";
 import { useForm } from "react-hook-form";
+import { publicRequest } from "../requestMethods";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
-  const { register, handleSubmit } = useForm({
-    defaultValues: {
-      name: '',
-      lastName: '',
-      password: '',
-   
-    }
+  const { register, handleSubmit } = useForm();
+
+
+  const [formState, setFormState] = useState({
+    name: "",
+    lastName: "",
+    email: "",
+    username: "",
+    password: "",
+    confirmPassword: "",
   });
 
-  /*useEffect(() => {
-    publicRequest.post("/auth/login", {
-      name: name,
-      username: username,
-      password: password
-    })
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
+  const navigate = useNavigate();
+
+  const onSubmit = async (data) => {
+    try {
+      const response = await publicRequest.post("/api/auth/register", data);
+      console.log(response.data);
+      navigate("/login");
+    } catch (e) {
+      console.log("Preencha todos os campos");
+    }
+  };
+
+    const changeForm = (e) => {
+    setFormState({
+      ...formState,
+      [e.target.name]: e.target.value,
     });
-  })*/
+  }
 
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
         <h1>CREAME MY ACCOUNT</h1>
-        <form onSubmit={handleSubmit(console.log)}>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <input
+            {...register("name", { required: true })}
             name="name"
             type="text"
             placeholder="Name"
-            {...register("name", { required: true })}
-
+            value={formState.name}
+            onChange={changeForm}
           />
           <input
+            {...register("lastName", { required: true })}
             name="lastName"
             type="text"
             placeholder="Last name"
-            {...register("lastName", { required: true })}
+            value={formState.lastName}
+            onChange={changeForm}
           />
           <input
+            {...register("username", { required: true })}
             name="username"
             type="text"
             placeholder="Username"
-            {...register("username", { required: true })}
+            value={formState.username}
+            onChange={changeForm}
           />
           <input
+            {...register("email", { required: true })}
             name="email"
             type="email"
             placeholder="Email"
-            {...register("email", { required: true })}
+            value={formState.email}
+            onChange={changeForm}
           />
 
           <input
+            {...register("password", { required: true })}
             name="password"
             type="password"
             placeholder="Password"
-            {...register("password", { required: true })}
+            value={formState.password}
+            onChange={changeForm}
           />
           <input
+            {...register("confirmPassword")}
             name="confirmPassword"
             type="password"
             placeholder="Confirm Password"
-            {...register("confirmPassword")}
+            value={formState.confirmPassword}
+            onChange={changeForm}
           />
           <p>
             By creating an account, I conset to the processing of my personal

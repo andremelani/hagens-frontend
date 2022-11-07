@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./styles.module.scss";
 import { Link } from "react-router-dom";
 import Badge from "@mui/material/Badge";
-import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import {ShoppingCartOutlined} from "@mui/icons-material";
 import { useSelector } from "react-redux";
 
 const Navbar = () => {
@@ -18,15 +18,15 @@ const Navbar = () => {
         <div className={styles.right}>
           <div className={styles.menuItem}>
 
-            <Link to="/register">REGISTER</Link>
+            <Link to="/register" >REGISTER</Link>
           </div>
           <div className={styles.menuItem}>
-          <Link to="/login">LOGIN</Link>
+          <Link to="/login" preventScrollReset={true}>LOGIN</Link>
           </div>
           <Link to="/cart">
             <div className={styles.menuItem}>
               <Badge badgeContent={quantity} color="primary">
-                <ShoppingCartOutlinedIcon />
+                <ShoppingCartOutlined />
               </Badge>
             </div>
           </Link>

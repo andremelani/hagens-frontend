@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './styles.module.scss'
-import SendIcon from '@mui/icons-material/Send';
+import {Send} from '@mui/icons-material';
 
 
 const Newsletter = () => {
@@ -11,7 +11,7 @@ const Newsletter = () => {
         <div className={styles.inputContainer}>
             <input placeholder='Your email' />
             <button>
-              <SendIcon />
+              <Send />
             </button>
         </div>
     </div>

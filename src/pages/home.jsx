@@ -1,6 +1,8 @@
-import styles from '../styles/Home.module.scss'
 
 import React from "react";
+import styles from '../styles/Home.module.scss'
+
+//Components
 import Navbar from "../components/Navbar";
 import Slider from "../components/Slider";
 import Categories from "../components/Categories";

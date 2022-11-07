@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
+import styles from "../styles/Product.module.scss";
+import { useLocation } from "react-router-dom";
+import { addProduct } from "../redux/cartRedux";
+import { useDispatch } from "react-redux";
+import axios from "axios";
+
+//COMPONENTS
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Newsletter from "../components/Newsletter";
-import AddIcon from "@mui/icons-material/Add";
-import RemoveIcon from "@mui/icons-material/Remove";
-import { useLocation } from "react-router-dom";
-import styles from "../styles/Product.module.scss";
-import { publicRequest } from "../requestMethods";
-import { addProduct } from "../redux/cartRedux";
-import { useDispatch } from "react-redux";
+import { Add, Remove } from "@mui/icons-material";
 
 const Product = () => {
   const location = useLocation();
@@ -20,9 +21,11 @@ const Product = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    publicRequest.get("products/find/" + id).then((res) => {
-      setProduct(res.data);
-    });
+    axios
+      .get("https://api-hagens2.herokuapp.com/api/products/find/" + id)
+      .then((res) => {
+        setProduct(res.data);
+      });
   }, [id]);
 
   const handleQuantity = (type) => {
@@ -34,9 +37,7 @@ const Product = () => {
   };
 
   const handleClick = () => {
-    dispatch(
-      addProduct({...product, quantity,color,size})
-      );
+    dispatch(addProduct({ ...product, quantity, color, size }));
   };
 
   return (
@@ -76,9 +77,9 @@ const Product = () => {
           </div>
           <div className={styles.addContainer}>
             <div className={styles.amountContainer}>
-              <RemoveIcon onClick={() => handleQuantity("dec")} />
+              <Remove onClick={() => handleQuantity("dec")} />
               <span className={styles.amount}>{quantity}</span>
-              <AddIcon onClick={() => handleQuantity("inc")} />
+              <Add onClick={() => handleQuantity("inc")} />
             </div>
             <button onClick={handleClick}>ADD TO CART</button>
           </div>

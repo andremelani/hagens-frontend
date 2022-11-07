@@ -1,12 +1,17 @@
 import React from "react";
 import styles from "./styles.module.scss";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
-import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
-import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
+
+//ICONS
+import {
+  Facebook,
+  Instagram,
+  LinkedIn,
+  Twitter,
+  LocationOn,
+  LocalPhone,
+  EmailOutlined
+} from "@mui/icons-material";
+
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -23,26 +28,25 @@ const Footer = () => {
         <div className={styles.socialContainer}>
           <Link to="/">
             <div className={styles.socialIcon}>
-              <FacebookIcon />
+              <Facebook />
             </div>
           </Link>
 
           <Link to="/">
             <div className={styles.socialIcon}>
-              <InstagramIcon />
+              <Instagram />
             </div>
           </Link>
           <Link to="/">
-          <div className={styles.socialIcon}>
-            <LinkedInIcon />
-          </div>
+            <div className={styles.socialIcon}>
+              <LinkedIn />
+            </div>
           </Link>
           <Link to="/">
-          <div className={styles.socialIcon}>
-            <TwitterIcon />
-          </div>
+            <div className={styles.socialIcon}>
+              <Twitter />
+            </div>
           </Link>
-
         </div>
       </div>
       <div className={styles.center}>
@@ -62,15 +66,15 @@ const Footer = () => {
       <div className={styles.right}>
         <h3>Contact</h3>
         <p className={styles.contactItem}>
-          <LocationOnIcon style={{ marginRight: "10px" }} />
+          <LocationOn style={{ marginRight: "10px" }} />
           Av. Silva Jardim, 2014 - Curitiba, PR
         </p>
         <p className={styles.contactItem}>
-          <LocalPhoneIcon style={{ marginRight: "10px" }} />
+          <LocalPhone style={{ marginRight: "10px" }} />
           (11) 94106-6927
         </p>
         <p className={styles.contactItem}>
-          <EmailOutlinedIcon style={{ marginRight: "10px" }} />
+          <EmailOutlined style={{ marginRight: "10px" }} />
           andre.lopes.melani@gmail.com
         </p>
         <img src="https://i.ibb.co/ccbfNQx/payment.png" alt="" />

@@ -1,7 +1,9 @@
 import React from 'react'
-import { categories } from '../../data/categories'
-import CategoryItem from '../CategoryItem'
 import styles from './styles.module.scss'
+import { categories } from '../../data/categories'
+//COMPONENTS
+import CategoryItem from '../CategoryItem'
+
 
 const Categories = () => {
   return (

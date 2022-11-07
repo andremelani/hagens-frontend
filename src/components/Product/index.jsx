@@ -1,9 +1,14 @@
 import React from "react";
 import styles from "./styles.module.scss";
-import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
-import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import { Link } from "react-router-dom";
+//ICONS
+import {
+  ShoppingCartOutlined,
+  SearchOutlined,
+  FavoriteBorderOutlined,
+} from "@mui/icons-material";
+
+
 
 const Product = ({ item }) => {
   return (
@@ -13,17 +18,17 @@ const Product = ({ item }) => {
       <div className={styles.info}>
         <div className={styles.icon}>
           <Link to={`/product/${item._id}`}>
-            <ShoppingCartOutlinedIcon />
+            <ShoppingCartOutlined />
           </Link>
         </div>
         <div className={styles.icon}>
           <Link to={`/product/${item._id}`}>
-            <SearchOutlinedIcon />
+            <SearchOutlined />
           </Link>
         </div>
         <div className={styles.icon}>
           <Link to={`/product/${item._id}`}>
-            <FavoriteBorderOutlinedIcon />
+            <FavoriteBorderOutlined />
           </Link>
         </div>
       </div>

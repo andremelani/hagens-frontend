@@ -1,11 +1,13 @@
 import React, { useState } from "react";
+import styles from "../styles/ProductList.module.scss";
+import { useLocation } from 'react-router-dom'
 
+//COMPONENTS
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Newsletter from "../components/Newsletter";
 import Products from "../components/Products";
-import styles from "../styles/ProductList.module.scss";
-import { useLocation } from 'react-router-dom'
+
 
 const ProductList = () => {
 

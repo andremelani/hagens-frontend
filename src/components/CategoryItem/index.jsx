@@ -10,7 +10,7 @@ const CategoryItem = ({ item }) => {
       <div className={styles.info}>
         <h1 className={styles.title}>{item.title}</h1>
 
-        <Link to={`/products/${item.category}`}>
+        <Link to={`/products/${item.category}`} >
           <button className={styles.shopNow}>SHOP NOW</button>
         </Link>
       </div>
